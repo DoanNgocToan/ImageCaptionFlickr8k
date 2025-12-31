@@ -13,4 +13,5 @@ python -u "{file_name.py}" --mode={mode} (for ResNet50 file) or
 python -u "{file_name.py}" --variant={variant} --mode={mode} (for EfficientNet file)
 
 You need to properly write your file name and arguments (check source code for supported arguments and their appropriate values)
-   
+# How to run filckr30k
+Just adjust CONFIG, FILE_PATHS and voilà
