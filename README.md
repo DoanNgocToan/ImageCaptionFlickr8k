@@ -1,4 +1,5 @@
-# This repo use ResNet50/ EfficientNet B0, B2, B3, B4 as Encoder; LSTM (with data injection) / LSTM (with data injection) + Bahdanau Attention / Transformer (CE Loss only) as Decoder; evaluate by BLEU (Exp) and METEOR as default, BLEU (linear) is for further research
+# This is not a benchmark (for real)
+This repo use ResNet50/ EfficientNet B0, B2, B3, B4 as Encoder; LSTM (with data injection) / LSTM (with data injection) + Bahdanau Attention / Transformer (CE Loss only) as Decoder; evaluate by BLEU (Exp) and METEOR as default, BLEU (linear) is for further research
 # How to run any files (Window)
 1. Open cmd in repo folder
 2. Enable env if you have to
