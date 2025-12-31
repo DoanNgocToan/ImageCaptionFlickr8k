@@ -1,0 +1,245 @@
+2025-12-30 01:48:34.170706: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-30 01:48:38.879776: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+======================================================================
+EFFICIENTNET-B2 + TRANSFORMER CONFIGURATION
+======================================================================
+Device: cuda
+CNN: EfficientNet-B2
+Input Size: 260�260
+Feature Map: 9�9�1408
+Num Regions: 81
+----------------------------------------------------------------------
+Decoder: Transformer
+Embed Size: 512
+Num Heads: 8
+Num Layers: 4
+FF Dimension: 2048
+Dropout: 0.5
+----------------------------------------------------------------------
+Batch Size: 32
+Epochs: 50
+Learning Rate: 1e-04
+----------------------------------------------------------------------
+Features: .\content\clean_data_flickr8k\features_efficientnet_b2.pkl
+Model: .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+======================================================================
+Loaded features for 8091 images (3520.6 MB)
+
+Loading captions...
+Loaded captions for 8091 images
+Cleaning captions...
+Building vocabulary (min_freq=1)...
+Vocab size: 8369
+Max caption length: 34
+Rare words filtered: 0 (0.0% of tokens)
+Train images: 6472, Test images: 1619
+Train batches: 1012, Val batches: 253
+Total params: 26,115,761, Trainable: 26,115,761
+C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\optim\lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+======================================================================
+STARTING TRAINING
+======================================================================
+
+Epoch 1/50 [Train]:   0%|          | 0/1012 [00:00<?, ?it/s]C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\nn\functional.py:5849: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+
+Epoch 1/50 [Train]: 100%|##########| 1012/1012 [01:58<00:00,  8.58it/s, loss=4.4663]
+Epoch 1/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.49it/s, loss=4.9242]
+
+Epoch 1/50
+Train Loss: 5.3800 | Val Loss: 4.7756
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.7756
+
+
+Epoch 2/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.58it/s, loss=4.2550]
+Epoch 2/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.30it/s, loss=4.6184]
+
+Epoch 2/50
+Train Loss: 4.5872 | Val Loss: 4.5001
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.5001
+
+
+Epoch 3/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.58it/s, loss=3.9914]
+Epoch 3/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.39it/s, loss=4.4716]
+
+Epoch 3/50
+Train Loss: 4.2956 | Val Loss: 4.3783
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.3783
+
+
+Epoch 4/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.60it/s, loss=4.7662]
+Epoch 4/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.39it/s, loss=4.4237]
+
+Epoch 4/50
+Train Loss: 4.1018 | Val Loss: 4.3020
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.3020
+
+
+Epoch 5/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.61it/s, loss=4.5164]
+Epoch 5/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.48it/s, loss=4.3306]
+
+Epoch 5/50
+Train Loss: 3.9503 | Val Loss: 4.2681
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.2681
+
+
+Epoch 6/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.60it/s, loss=3.7526]
+Epoch 6/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.25it/s, loss=4.2600]
+
+Epoch 6/50
+Train Loss: 3.8206 | Val Loss: 4.2643
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.2643
+
+
+Epoch 7/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.61it/s, loss=3.7754]
+Epoch 7/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.58it/s, loss=4.2855]
+
+Epoch 7/50
+Train Loss: 3.7123 | Val Loss: 4.2608
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+New best model! Val Loss: 4.2608
+
+
+Epoch 8/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.59it/s, loss=3.2695]
+Epoch 8/50 [Val]: 100%|##########| 253/253 [00:09<00:00, 28.06it/s, loss=4.2384]
+
+Epoch 8/50
+Train Loss: 3.6124 | Val Loss: 4.2639
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 9/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.60it/s, loss=3.5103]
+Epoch 9/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.25it/s, loss=4.2194]
+
+Epoch 9/50
+Train Loss: 3.5249 | Val Loss: 4.2618
+LR: 0.000100
+No improvement for 2 epoch(s)
+
+
+Epoch 10/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.62it/s, loss=3.7609]
+Epoch 10/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.33it/s, loss=4.2212]
+
+Epoch 10/50
+Train Loss: 3.4128 | Val Loss: 4.2747
+LR: 0.000070
+No improvement for 3 epoch(s)
+
+
+Epoch 11/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.60it/s, loss=3.2415]
+Epoch 11/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.69it/s, loss=4.2003]
+
+Epoch 11/50
+Train Loss: 3.3462 | Val Loss: 4.3060
+LR: 0.000070
+No improvement for 4 epoch(s)
+
+
+Epoch 12/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.59it/s, loss=2.9835]
+Epoch 12/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.46it/s, loss=4.1717]
+
+Epoch 12/50
+Train Loss: 3.2629 | Val Loss: 4.3009
+LR: 0.000049
+No improvement for 5 epoch(s)
+
+
+Epoch 13/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.62it/s, loss=3.2472]
+Epoch 13/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.28it/s, loss=4.2266]
+
+Epoch 13/50
+Train Loss: 3.2193 | Val Loss: 4.3196
+LR: 0.000049
+No improvement for 6 epoch(s)
+
+
+Epoch 14/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.60it/s, loss=3.4910]
+Epoch 14/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.22it/s, loss=4.2048]
+
+Epoch 14/50
+Train Loss: 3.1619 | Val Loss: 4.3228
+LR: 0.000034
+No improvement for 7 epoch(s)
+
+
+Epoch 15/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.61it/s, loss=2.9838]
+Epoch 15/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.49it/s, loss=4.2170]
+
+Epoch 15/50
+Train Loss: 3.1280 | Val Loss: 4.3327
+LR: 0.000034
+No improvement for 8 epoch(s)
+
+
+Epoch 16/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.61it/s, loss=3.4539]
+Epoch 16/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.50it/s, loss=4.2190]
+
+Epoch 16/50
+Train Loss: 3.0850 | Val Loss: 4.3439
+LR: 0.000024
+No improvement for 9 epoch(s)
+
+
+Epoch 17/50 [Train]: 100%|##########| 1012/1012 [01:57<00:00,  8.61it/s, loss=2.9155]
+Epoch 17/50 [Val]: 100%|##########| 253/253 [00:08<00:00, 28.34it/s, loss=4.2033]
+
+Epoch 17/50
+Train Loss: 3.0639 | Val Loss: 4.3455
+LR: 0.000024
+No improvement for 10 epoch(s)
+Early stopping after 17 epochs
+
+TRAINING COMPLETED
+
+
+Training completed!
+Best model saved at: .\content\clean_data_flickr8k\best_model_efficientnet_b2_transformer.pth
+C:\Users\LAPTOP\Documents\Code\Python\EfficientNet_Full_Flavor_Transformer.py:1060: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(paths['model'], map_location=Config.DEVICE)
+Loaded best model from epoch 7 with val loss 4.2608
+
+
+Generating captions: 100%|##########| 1619/1619 [02:38<00:00, 10.22it/s]
+
+BLEU scores:
+BLEU-1: 0.4889
+BLEU-2: 0.3308
+BLEU-3: 0.2204
+BLEU-4: 0.1388
+
+
+Research Evaluation: 100%|##########| 1619/1619 [02:42<00:00,  9.98it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.4889
+BLEU-2 (nltk): 0.3308
+BLEU-3 (nltk): 0.2204
+BLEU-4 (nltk): 0.1388
+BLEU-1 (linear BP): 0.4887
+BLEU-2 (linear BP): 0.3307
+BLEU-3 (linear BP): 0.2203
+BLEU-4 (linear BP): 0.1388
+METEOR: 0.2889
+Avg Pred Len: 7.4620
+Avg Ref Len: 7.8931
+Len Ratio: 0.9454
+==================================================
+
+Done.

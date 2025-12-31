@@ -1,0 +1,213 @@
+(fer) C:\Users\LAPTOP\Documents\Code\Python>python -u "EfficientNet_Full_Flavor_LSTM_Attention copy.py" --variant="b0" --mode="train"
+2025-12-29 16:59:00.900757: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-29 16:59:11.175812: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+======================================================================
+EFFICIENTNET-B0 CONFIGURATION
+======================================================================
+Device: cuda
+Model: EfficientNet-B0
+Input Size: 224×224
+Feature Map: 7×7×1280
+Num Regions: 49
+Feature Dim: 1280
+----------------------------------------------------------------------
+Batch Size: 32
+Epochs: 50
+Learning Rate: 1e-04
+Min Word Freq: 1
+----------------------------------------------------------------------
+Embed Size: 512
+Hidden Size: 512
+Attention Dim: 512
+----------------------------------------------------------------------
+Scheduled Sampling: True
+----------------------------------------------------------------------
+Features Path: .\content\clean_data_flickr8k\features_efficientnet_b0.pkl
+Model Path: .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+======================================================================
+Loading EfficientNet-B0...
+
+======================================================================
+EXTRACTING EFFICIENTNET-B0 FEATURES
+Input Size: 224×224
+Output Shape: 7×7×1280
+Num Regions: 49
+======================================================================
+
+Extracting features: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8091/8091 [02:47<00:00, 48.28it/s] 
+
+======================================================================
+Saved features to: .\content\clean_data_flickr8k\features_efficientnet_b0.pkl
+Total images: 8091
+File size: 1936.4 MB
+Per-image: 0.24 MB
+======================================================================
+
+
+Loading captions...
+Loaded captions for 8091 images
+Cleaning captions...
+Building vocabulary (min_freq=1)...
+Vocab size: 8369
+Max caption length: 34
+Rare words filtered: 0 (0.0% of tokens)
+Train images: 6472, Test images: 1619
+Train batches: 1012, Val batches: 253
+Total params: 16,449,714, Trainable: 16,449,714
+C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\optim\lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+======================================================================
+STARTING TRAINING
+======================================================================
+Epoch 1/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [03:35<00:00,  4.69it/s, loss=5.0997] 
+Epoch 1/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:22<00:00, 11.08it/s, loss=5.1891] 
+
+Epoch 1/50
+Train Loss: 5.8160 | Val Loss: 5.1404
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 5.1404
+Epoch 2/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:44<00:00,  3.56it/s, loss=4.9113] 
+Epoch 2/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.55it/s, loss=4.8124] 
+
+Epoch 2/50
+Train Loss: 5.0246 | Val Loss: 4.7912
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.7912
+Epoch 3/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:36<00:00,  3.66it/s, loss=4.5568] 
+Epoch 3/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.69it/s, loss=4.5943] 
+
+Epoch 3/50
+Train Loss: 4.7271 | Val Loss: 4.6013
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.6013
+Epoch 4/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:30<00:00,  3.75it/s, loss=4.5168] 
+Epoch 4/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:20<00:00, 12.63it/s, loss=4.4898] 
+
+Epoch 4/50
+Train Loss: 4.5255 | Val Loss: 4.4942
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.4942
+Epoch 5/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:16<00:00,  3.95it/s, loss=4.4433] 
+Epoch 5/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:20<00:00, 12.65it/s, loss=4.4070] 
+
+Epoch 5/50
+Train Loss: 4.3701 | Val Loss: 4.4215
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.4215
+Epoch 6/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:17<00:00,  3.92it/s, loss=4.3182] 
+Epoch 6/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:19<00:00, 12.71it/s, loss=4.3645] 
+
+Epoch 6/50
+Train Loss: 4.2460 | Val Loss: 4.3713
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.3713
+Epoch 7/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:16<00:00,  3.95it/s, loss=4.0923] 
+Epoch 7/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:19<00:00, 12.74it/s, loss=4.2954] 
+
+Epoch 7/50
+Train Loss: 4.1373 | Val Loss: 4.3442
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.3442
+Epoch 8/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:21<00:00,  3.87it/s, loss=4.0556] 
+Epoch 8/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:14<00:00, 17.38it/s, loss=4.3042] 
+
+Epoch 8/50
+Train Loss: 4.0442 | Val Loss: 4.3355
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.3355
+Epoch 9/50 [Train] SS=0.000: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:31<00:00,  3.73it/s, loss=3.8762] 
+Epoch 9/50 [Val]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.77it/s, loss=4.2471] 
+
+Epoch 9/50
+Train Loss: 3.9622 | Val Loss: 4.3021
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.3021
+Epoch 10/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:37<00:00,  3.65it/s, loss=3.4329] 
+Epoch 10/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.80it/s, loss=4.2127] 
+
+Epoch 10/50
+Train Loss: 3.8849 | Val Loss: 4.2979
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+New best model! Val Loss: 4.2979
+Epoch 11/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:45<00:00,  3.55it/s, loss=3.5621] 
+Epoch 11/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.94it/s, loss=4.2123] 
+
+Epoch 11/50
+Train Loss: 3.8187 | Val Loss: 4.3107
+LR: 0.000100
+No improvement for 1 epoch(s)
+Epoch 12/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:35<00:00,  3.67it/s, loss=3.9960] 
+Epoch 12/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.76it/s, loss=4.1837] 
+
+Epoch 12/50
+Train Loss: 3.7537 | Val Loss: 4.2988
+LR: 0.000100
+No improvement for 2 epoch(s)
+Epoch 13/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:39<00:00,  3.63it/s, loss=3.8784] 
+Epoch 13/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:23<00:00, 10.80it/s, loss=4.2129] 
+
+Epoch 13/50
+Train Loss: 3.6777 | Val Loss: 4.3034
+LR: 0.000070
+No improvement for 3 epoch(s)
+Epoch 14/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:24<00:00,  3.83it/s, loss=4.0834] 
+Epoch 14/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:19<00:00, 12.88it/s, loss=4.2201] 
+
+Epoch 14/50
+Train Loss: 3.6336 | Val Loss: 4.3104
+LR: 0.000070
+No improvement for 4 epoch(s)
+Epoch 15/50 [Train] SS=0.000: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1012/1012 [04:18<00:00,  3.91it/s, loss=3.7599] 
+Epoch 15/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 253/253 [00:19<00:00, 12.84it/s, loss=4.2315] 
+
+Epoch 15/50
+Train Loss: 3.5766 | Val Loss: 4.3232
+LR: 0.000049
+No improvement for 5 epoch(s)
+Early stopping after 15 epochs
+
+TRAINING COMPLETED
+
+
+Training completed!
+Best model saved at: .\content\clean_data_flickr8k\best_model_efficientnet_b0_h512.pth
+C:\Users\LAPTOP\Documents\Code\Python\EfficientNet_Full_Flavor_LSTM_Attention copy.py:1105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(paths['model'], map_location=Config.DEVICE)
+Loaded best model from epoch 10 with val loss 4.2979
+Generating captions: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1619/1619 [02:51<00:00,  9.43it/s] 
+
+BLEU scores:
+BLEU-1: 0.5024
+BLEU-2: 0.3366
+BLEU-3: 0.2203
+BLEU-4: 0.1362
+Research Evaluation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1619/1619 [03:08<00:00,  8.59it/s] 
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.5024
+BLEU-2 (nltk): 0.3366
+BLEU-3 (nltk): 0.2203
+BLEU-4 (nltk): 0.1362
+BLEU-1 (linear BP): 0.4991
+BLEU-2 (linear BP): 0.3344
+BLEU-3 (linear BP): 0.2188
+BLEU-4 (linear BP): 0.1354
+METEOR: 0.2912
+Avg Pred Len: 8.0000
+Avg Ref Len: 7.9432
+Len Ratio: 1.0072
+==================================================
+
+Done.

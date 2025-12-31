@@ -1,0 +1,247 @@
+2025-12-25 02:03:11.403285: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-25 02:03:21.490330: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+======================================================================
+EFFICIENTNET-B2 CONFIGURATION
+======================================================================
+Device: cuda
+Model: EfficientNet-B2
+Input Size: 260�260
+Feature Map: 9�9�1408
+Num Regions: 81
+Feature Dim: 1408
+----------------------------------------------------------------------
+Batch Size: 32
+Epochs: 100
+Learning Rate: 1e-04
+Min Word Freq: 1
+----------------------------------------------------------------------
+Embed Size: 512
+Hidden Size: 512
+Attention Dim: 512
+----------------------------------------------------------------------
+Scheduled Sampling: True
+----------------------------------------------------------------------
+Features Path: .\content\clean_data_flickr8k\features_efficientnet_b2.pkl
+Model Path: .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+======================================================================
+Loaded features for 8091 images (3520.6 MB)
+
+Loading captions...
+Loaded captions for 8091 images
+Cleaning captions...
+Building vocabulary (min_freq=1)...
+Vocab size: 8369
+Max caption length: 34
+Rare words filtered: 0 (0.0% of tokens)
+Train images: 6472, Test images: 1619
+Train batches: 1012, Val batches: 253
+Total params: 16,974,002, Trainable: 16,974,002
+C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\optim\lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+======================================================================
+STARTING TRAINING
+======================================================================
+
+Epoch 1/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:25<00:00,  3.81it/s, loss=5.5271]
+Epoch 1/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.01it/s, loss=5.1294]
+
+Epoch 1/100
+Train Loss: 5.8482 | Val Loss: 5.1406
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 5.1406
+
+
+Epoch 2/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=4.9003]
+Epoch 2/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 12.97it/s, loss=4.7916]
+
+Epoch 2/100
+Train Loss: 5.0465 | Val Loss: 4.7864
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.7864
+
+
+Epoch 3/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=4.8787]
+Epoch 3/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 12.98it/s, loss=4.6003]
+
+Epoch 3/100
+Train Loss: 4.7446 | Val Loss: 4.5948
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.5948
+
+
+Epoch 4/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=4.1741]
+Epoch 4/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.03it/s, loss=4.5040]
+
+Epoch 4/100
+Train Loss: 4.5405 | Val Loss: 4.4829
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.4829
+
+
+Epoch 5/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.97it/s, loss=4.1924]
+Epoch 5/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.03it/s, loss=4.4295]
+
+Epoch 5/100
+Train Loss: 4.3809 | Val Loss: 4.3987
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.3987
+
+
+Epoch 6/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=4.1272]
+Epoch 6/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.01it/s, loss=4.3979]
+
+Epoch 6/100
+Train Loss: 4.2535 | Val Loss: 4.3537
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.3537
+
+
+Epoch 7/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=4.1656]
+Epoch 7/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.06it/s, loss=4.3831]
+
+Epoch 7/100
+Train Loss: 4.1440 | Val Loss: 4.3262
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.3262
+
+
+Epoch 8/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=4.4535]
+Epoch 8/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.06it/s, loss=4.3540]
+
+Epoch 8/100
+Train Loss: 4.0501 | Val Loss: 4.3040
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.3040
+
+
+Epoch 9/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=4.0282]
+Epoch 9/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.05it/s, loss=4.3554]
+
+Epoch 9/100
+Train Loss: 3.9649 | Val Loss: 4.2905
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.2905
+
+
+Epoch 10/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=3.6480]
+Epoch 10/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.04it/s, loss=4.3351]
+
+Epoch 10/100
+Train Loss: 3.8859 | Val Loss: 4.2747
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.2747
+
+
+Epoch 11/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=3.4252]
+Epoch 11/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.08it/s, loss=4.3319]
+
+Epoch 11/100
+Train Loss: 3.8154 | Val Loss: 4.2818
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 12/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=3.7930]
+Epoch 12/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.02it/s, loss=4.3402]
+
+Epoch 12/100
+Train Loss: 3.7503 | Val Loss: 4.2723
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+New best model! Val Loss: 4.2723
+
+
+Epoch 13/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=4.2208]
+Epoch 13/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.02it/s, loss=4.3638]
+
+Epoch 13/100
+Train Loss: 3.6910 | Val Loss: 4.2811
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 14/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:14<00:00,  3.98it/s, loss=3.8176]
+Epoch 14/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.01it/s, loss=4.3558]
+
+Epoch 14/100
+Train Loss: 3.6351 | Val Loss: 4.2848
+LR: 0.000100
+No improvement for 2 epoch(s)
+
+
+Epoch 15/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.98it/s, loss=3.4927]
+Epoch 15/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.05it/s, loss=4.3583]
+
+Epoch 15/100
+Train Loss: 3.5606 | Val Loss: 4.2970
+LR: 0.000070
+No improvement for 3 epoch(s)
+
+
+Epoch 16/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=3.6131]
+Epoch 16/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 12.99it/s, loss=4.3676]
+
+Epoch 16/100
+Train Loss: 3.5196 | Val Loss: 4.3075
+LR: 0.000070
+No improvement for 4 epoch(s)
+
+
+Epoch 17/100 [Train] SS=0.000: 100%|##########| 1012/1012 [04:13<00:00,  3.99it/s, loss=3.7378]
+Epoch 17/100 [Val]: 100%|##########| 253/253 [00:19<00:00, 13.04it/s, loss=4.3827]
+
+Epoch 17/100
+Train Loss: 3.4669 | Val Loss: 4.3161
+LR: 0.000049
+No improvement for 5 epoch(s)
+Early stopping after 17 epochs
+
+TRAINING COMPLETED
+
+
+Training completed!
+Best model saved at: .\content\clean_data_flickr8k\best_model_efficientnet_b2_h512.pth
+C:\Users\LAPTOP\Documents\Code\Python\EfficientNet_Full_Flavor_LSTM_Attention.py:1103: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(paths['model'], map_location=Config.DEVICE)
+Loaded best model from epoch 12 with val loss 4.2723
+
+
+Generating captions: 100%|##########| 1619/1619 [01:02<00:00, 25.75it/s]
+
+BLEU scores:
+BLEU-1: 0.5061
+BLEU-2: 0.3404
+BLEU-3: 0.2273
+BLEU-4: 0.1453
+
+
+Research Evaluation: 100%|##########| 1619/1619 [01:13<00:00, 22.10it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.5061
+BLEU-2 (nltk): 0.3404
+BLEU-3 (nltk): 0.2273
+BLEU-4 (nltk): 0.1453
+BLEU-1 (linear BP): 0.5039
+BLEU-2 (linear BP): 0.3389
+BLEU-3 (linear BP): 0.2264
+BLEU-4 (linear BP): 0.1447
+METEOR: 0.2949
+Avg Pred Len: 7.9512
+Avg Ref Len: 7.9605
+Len Ratio: 0.9988
+==================================================
+
+Done.
