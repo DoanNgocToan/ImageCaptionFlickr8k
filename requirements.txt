@@ -1,0 +1,7 @@
+torch==2.5.1+cu128
+torchvision==0.20.1+cu128
+numpy
+pillow
+tqdm
+nltk
+tensorboard==2.19.0
