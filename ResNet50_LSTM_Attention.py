@@ -1,6 +1,6 @@
 """
 Image Captioning with Attention (timestep attention) using PyTorch
-Dataset: Flickr30k
+Dataset: Flickr8k
 Changes vs original:
 - ResNet50 feature extractor -> feature maps (1, 7, 7, 2048) saved as numpy
 - Decoder uses attention at every timestep (LSTMCell-based)
@@ -10,7 +10,6 @@ Author: Refactor for user request
 """
 
 import os
-import re
 import pickle
 import random
 import time
@@ -19,7 +18,6 @@ from collections import defaultdict
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
-import pandas as pd
 
 import torch
 import torch.nn as nn
@@ -35,27 +33,28 @@ from nltk.translate.bleu_score import corpus_bleu
 # CONFIG
 # ============================================================================
 class Config:
-    DATASET_PATH = '.\\flickr30k_images'  # adjust to your dataset path
-    CAPTION_PATH = os.path.join(DATASET_PATH, 'results.csv')
-    IMAGE_DIR = os.path.join(DATASET_PATH, 'flickr30k_images')
-    FEATURES_PATH = os.path.join(DATASET_PATH, 'features_resnet50_flickr30k.pkl')
-    MODEL_SAVE_PATH = os.path.join(DATASET_PATH, 'best_model_resnet50_attention_h512_30k.pth')
+    DATASET_PATH = '.\\content\\clean_data_flickr8k'
+    BIG_DATASET_PATH = '.\\flickr30k_images' 
+    CAPTION_PATH = os.path.join(DATASET_PATH, 'captions.txt')
+    IMAGE_DIR = os.path.join(DATASET_PATH, 'Images')
+    FEATURES_PATH = os.path.join(DATASET_PATH, 'features_resnet50.pkl')
+    MODEL_SAVE_PATH = os.path.join(DATASET_PATH, 'best_model_resnet50_attention_h256.pth')
     TENSORBOARD_LOG_ROOT = os.path.join(DATASET_PATH, 'runs')
 
     # model hyperparams
-    EMBED_SIZE = 512
-    HIDDEN_SIZE = 512
-    ATTENTION_DIM = 512
+    EMBED_SIZE = 256
+    HIDDEN_SIZE = 256
+    ATTENTION_DIM = 256
 
     EMBED_DROPOUT = 0.4
     LSTM_DROPOUT = 0.3
     DECODER_DROPOUT = 0.5
 
     # training
-    BATCH_SIZE = 64
+    BATCH_SIZE = 32
     EPOCHS = 50
-    LEARNING_RATE = 3e-4
-    TRAIN_SPLIT = 0.90
+    LEARNING_RATE = 1e-4
+    TRAIN_SPLIT = 0.80
 
     WEIGHT_DECAY = 1e-5
     LABEL_SMOOTHING = 0.1
@@ -66,11 +65,14 @@ class Config:
 
     GRAD_CLIP = 5.0
 
+    SCHEDULED_SAMPLING = True  # Enable/disable
+    SS_START_EPOCH = 50  # Start using predicted words from epoch 5
+    SS_MAX_RATIO = 0.5  # Max 50% of tokens use predictions
+    SS_STRATEGY = 'sigmoid'  # 'linear', 'exponential', or 'sigmoid'
+    
+
     NUM_WORKERS = 0
     PIN_MEMORY = False
-
-    MAX_CAPTION_LENGTH = 35 
-    MIN_WORD_FREQ = 3
 
     # features
     FEATURE_SHAPE = (49, 2048)   # 7*7, 2048
@@ -101,6 +103,15 @@ class Config:
         print(f"Feature shape: {cls.FEATURE_SHAPE}")
         print(f"Gradient Clip: {cls.GRAD_CLIP}")
         print("="*70)
+        print(f"Scheduled Sampling: {cls.SCHEDULED_SAMPLING}")
+        if cls.SCHEDULED_SAMPLING:
+            print(f"  Start Epoch: {cls.SS_START_EPOCH}")
+            print(f"  Max Ratio: {cls.SS_MAX_RATIO}")
+            print(f"  Strategy: {cls.SS_STRATEGY}")
+        print("-"*70)
+        print(f"Feature shape: {cls.FEATURE_SHAPE}")
+        print(f"Gradient Clip: {cls.GRAD_CLIP}")
+        print("="*70)
 
 # ============================================================================
 # FEATURE EXTRACTOR (ResNet50 - up to conv layer)
@@ -124,7 +135,7 @@ class FeatureExtractorResNet50:
         model.eval().to(self.device)
         for p in model.parameters():
             p.requires_grad = False
-        return model.to(self.device)
+        return model
 
     def extract_features(self, image_dir, save_path):
         print(f"\nExtracting features (ResNet50) from {image_dir} ...")
@@ -151,17 +162,6 @@ class FeatureExtractorResNet50:
 # CAPTION PROCESSOR (same idea)
 # ============================================================================
 class CaptionProcessor:
-    URL_PATTERN = re.compile(r"(http|https|www\.)\S+")
-    NON_ALNUM = re.compile(r"[^a-z0-9\s'’-]")
-    CONTRACTIONS = {
-        "n't": " not",
-        "'re": " are",
-        "'s": " is",
-        "'d": " would",
-        "'ll": " will",
-        "'ve": " have",
-        "'m": " am"
-    }
     def __init__(self, caption_path):
         self.caption_path = caption_path
         self.mapping = {}
@@ -172,16 +172,17 @@ class CaptionProcessor:
 
     def load_captions(self):
         print("\nLoading captions...")
-        df = pd.read_csv(self.caption_path, sep="|", engine="python",skiprows=1, names=["image_name", "comment_number", "comment"])
-        df.columns = [c.strip() for c in df.columns]
-
-        for _, row in df.iterrows():
-            image_name = row["image_name"].strip()
-            caption = str(row["comment"]).strip()
-            image_id = image_name.split('.')[0]
-            if image_id not in self.mapping:
-                self.mapping[image_id] = []
-            self.mapping[image_id].append(caption)
+        with open(self.caption_path, 'r', encoding='utf-8') as f:
+            next(f)
+            for line in f:
+                parts = line.strip().split(',', 1)
+                if len(parts) < 2:
+                    continue
+                image_name, caption = parts
+                image_id = image_name.split('.')[0]
+                if image_id not in self.mapping:
+                    self.mapping[image_id] = []
+                self.mapping[image_id].append(caption)
         print(f"Loaded captions for {len(self.mapping)} images")
 
     def clean_captions(self):
@@ -189,16 +190,12 @@ class CaptionProcessor:
         for img_id, caps in self.mapping.items():
             for i in range(len(caps)):
                 cap = caps[i].lower()
-                cap = self.URL_PATTERN.sub("", cap)
-                cap = cap.replace("’", "'")
-                for k, v in self.CONTRACTIONS.items():
-                    cap = cap.replace(k, v)
-                cap = self.NON_ALNUM.sub(" ", cap)
-                cap = re.sub(r"\s+", " ", cap).strip()
-                words = [w for w in cap.split() if len(w) > 1][:Config.MAX_CAPTION_LENGTH - 2]
+                cap = ''.join([c for c in cap if c.isalnum() or c.isspace()])
+                cap = ' '.join(cap.split())
+                words = [w for w in cap.split() if len(w) > 1]
                 caps[i] = 'startseq ' + ' '.join(words) + ' endseq'
 
-    def build_vocabulary(self, min_freq=Config.MIN_WORD_FREQ):
+    def build_vocabulary(self, min_freq=1):
         print("Building vocabulary...")
         freq = defaultdict(int)
         for caps in self.mapping.values():
@@ -277,6 +274,51 @@ class FlickrDataset(Dataset):
             torch.LongTensor(tgt_arr),              # (max_len,)
             length                                 # effective length of input (before padding)
         )
+# ============================================================================
+# SCHEDULED SAMPLING FUNCTIONS
+# ============================================================================
+def get_sampling_probability(epoch, total_epochs, start_epoch, max_ratio, strategy='linear'):
+    """
+    Calculate probability of using predicted word instead of ground truth.
+    
+    Args:
+        epoch: Current epoch (0-indexed)
+        total_epochs: Total number of epochs
+        start_epoch: Epoch to start scheduled sampling
+        max_ratio: Maximum sampling probability
+        strategy: 'linear', 'exponential', or 'sigmoid'
+    
+    Returns:
+        Probability in [0, max_ratio]
+    """
+    if epoch < start_epoch:
+        return 0.0
+    
+    # Progress from start_epoch to total_epochs
+    progress = (epoch - start_epoch) / max(1, total_epochs - start_epoch)
+    progress = min(1.0, progress)  # Cap at 1.0
+    
+    if strategy == 'linear':
+        # Linear increase: 0 → max_ratio
+        ratio = max_ratio * progress
+    
+    elif strategy == 'exponential':
+        # Exponential: starts slow, accelerates
+        # k=2 gives good balance
+        ratio = max_ratio * (progress ** 2)
+    
+    elif strategy == 'sigmoid':
+        # Sigmoid: smooth S-curve
+        # Shift sigmoid to (0,1) range
+        import math
+        x = 10 * (progress - 0.5)  # Map to [-5, 5]
+        sigmoid = 1 / (1 + math.exp(-x))
+        ratio = max_ratio * sigmoid
+    
+    else:
+        ratio = 0.0
+    
+    return ratio
 
 # ============================================================================
 # ATTENTION (Bahdanau) - per timestep
@@ -408,6 +450,18 @@ class Trainer:
     def train_epoch(self, epoch):
         self.model.train()
         total_loss = 0.0
+
+        if self.config.SCHEDULED_SAMPLING:
+            sampling_prob = get_sampling_probability(
+                epoch, 
+                self.config.EPOCHS,
+                self.config.SS_START_EPOCH,
+                self.config.SS_MAX_RATIO,
+                self.config.SS_STRATEGY
+            )
+        else:
+            sampling_prob = 0.0
+        
         pbar = tqdm(self.train_loader, desc=f"Epoch {epoch+1}/{self.config.EPOCHS} [Train]")
         for batch_idx, (img_feats, input_seqs, target_seqs, lengths) in enumerate(pbar):
             img_feats = img_feats.to(self.config.DEVICE)             # (B,49,2048)
@@ -415,7 +469,15 @@ class Trainer:
             target_seqs = target_seqs.to(self.config.DEVICE)         # (B,max_len)
             lengths = lengths.to(self.config.DEVICE)
 
-            outputs = self.model(img_feats, input_seqs, lengths)     # (B,max_len,vocab)
+            # SCHEDULED SAMPLING: Forward pass with probabilistic token selection
+            if sampling_prob > 0:
+                outputs = self._forward_with_scheduled_sampling(
+                    img_feats, input_seqs, target_seqs, lengths, sampling_prob
+                )
+            else:
+                # Standard teacher forcing
+                outputs = self.model(img_feats, input_seqs, lengths)
+
             # compute loss: flatten
             B, T, V = outputs.size()
             outputs_flat = outputs.view(B * T, V)
@@ -435,6 +497,64 @@ class Trainer:
         avg_epoch_loss = total_loss / len(self.train_loader)
         self.writer.add_scalar('Train/Loss_epoch', avg_epoch_loss, epoch)
         return avg_epoch_loss
+
+    def _forward_with_scheduled_sampling(self, image_features, input_seqs, target_seqs, lengths, sampling_prob):
+        """
+        Forward pass with scheduled sampling
+        
+        At each timestep:
+        - With probability sampling_prob: use predicted token from previous step
+        - Otherwise: use ground truth token (teacher forcing)
+        """
+        batch_size = image_features.size(0)
+        max_len = input_seqs.size(1)
+        
+        # Init hidden/cell
+        mean_feats = image_features.mean(dim=1)
+        h = torch.tanh(self.model.init_h(mean_feats))
+        c = torch.tanh(self.model.init_c(mean_feats))
+        
+        outputs = torch.zeros(batch_size, max_len, self.model.vocab_size, device=image_features.device)
+        
+        # First timestep always uses ground truth (startseq)
+        current_input = input_seqs[:, 0]  # (B,)
+        
+        for t in range(max_len):
+            # Attention
+            context, alpha = self.model.attention(image_features, h)
+            
+            # Embed current input token
+            embeddings = self.model.embedding(current_input)  # (B, embed_size)
+            embeddings = self.model.embed_dropout(embeddings)
+            
+            # LSTM step
+            lstm_input = torch.cat([embeddings, context], dim=1)
+            h, c = self.model.lstm_cell(lstm_input, (h, c))
+            
+            h_drop = self.model.lstm_dropout(h)
+            
+            # Decoder
+            concat_h = torch.cat([h_drop, context], dim=1)
+            out = self.model.fc1(concat_h)
+            out = self.model.relu(out)
+            out = self.model.decoder_dropout(out)
+            logits = self.model.fc2(out)  # (B, vocab)
+            
+            outputs[:, t, :] = logits
+            
+            # Prepare input for next timestep
+            if t < max_len - 1:
+                # Decide: use prediction or ground truth?
+                use_prediction = torch.rand(1).item() < sampling_prob
+                
+                if use_prediction:
+                    # Use predicted token (greedy)
+                    current_input = logits.argmax(dim=1).detach()  # (B,)
+                else:
+                    # Use ground truth (teacher forcing)
+                    current_input = input_seqs[:, t + 1]  # (B,)
+        
+        return outputs
 
     def validate(self, epoch):
         self.model.eval()
@@ -479,7 +599,8 @@ class Trainer:
                 'attention_dim': self.config.ATTENTION_DIM,
                 'embed_dropout': self.config.EMBED_DROPOUT,
                 'lstm_dropout': self.config.LSTM_DROPOUT,
-                'decoder_dropout': self.config.DECODER_DROPOUT
+                'decoder_dropout': self.config.DECODER_DROPOUT,
+                'scheduled_sampling': self.config.SCHEDULED_SAMPLING
             }
         }
         torch.save(checkpoint, self.config.MODEL_SAVE_PATH)
@@ -910,6 +1031,41 @@ class ResearchEvaluator:
         return results    
 
 # ============================================================================
+# VISUALIZATION: Compare sampling strategies
+# ============================================================================
+def visualize_sampling_schedules():
+    """
+    Visualize different scheduled sampling strategies
+    """
+    import matplotlib.pyplot as plt
+    
+    epochs = list(range(30))
+    strategies = ['linear', 'exponential', 'sigmoid']
+    
+    plt.figure(figsize=(12, 4))
+    
+    for i, strategy in enumerate(strategies, 1):
+        probs = [
+            get_sampling_probability(e, 30, 5, 0.5, strategy) 
+            for e in epochs
+        ]
+        
+        plt.subplot(1, 3, i)
+        plt.plot(epochs, probs, linewidth=2)
+        plt.axvline(x=5, color='r', linestyle='--', alpha=0.5, label='Start epoch')
+        plt.xlabel('Epoch')
+        plt.ylabel('Sampling Probability')
+        plt.title(f'{strategy.capitalize()} Schedule')
+        plt.ylim([0, 0.6])
+        plt.grid(alpha=0.3)
+        plt.legend()
+    
+    plt.tight_layout()
+    plt.savefig('scheduled_sampling_strategies.png', dpi=150)
+    print("Saved visualization to 'scheduled_sampling_strategies.png'")
+    plt.show()
+
+# ============================================================================
 # MAIN pipeline
 # ============================================================================
 def main():
@@ -992,7 +1148,22 @@ def main():
         use_beam=True,
         beam_size=3
     )
-    print(f"Research evaluation results: {research_results}")
+    
+    
+    visualize_sampling_schedules()
+    
+    # # Example: Get sampling probability for epoch 10
+    # prob = get_sampling_probability(
+    #     epoch=10,
+    #     total_epochs=30,
+    #     start_epoch=5,
+    #     max_ratio=0.5,
+    #     strategy='linear'
+    # )
+    # print(f"\nEpoch 10, Linear strategy: {prob:.3f}")
+    # print(f"  → {prob*100:.1f}% of tokens will use predictions")
+    # print(f"  → {(1-prob)*100:.1f}% of tokens will use ground truth")
+
     # 8. visualize few examples
     generator = CaptionGenerator(model, cp, features, Config)
     for img_id in random.sample(test_ids, min(3, len(test_ids))):
@@ -1122,6 +1293,7 @@ def load_and_inference(image_id=None):
         rid = random.choice(list(cp.mapping.keys()))
         generator.visualize_caption(rid, Config.IMAGE_DIR, beam_size=3)
     return model, cp, features, generator
+
 
 if __name__ == "__main__":
     import argparse

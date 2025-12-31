@@ -1,0 +1,367 @@
+Extracting features: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 31783/31783 [11:22<00:00, 46.55it/s]
+Saved features -> .\flickr30k_images\features_resnet50_flickr30k.pkl (total 31783)
+
+Loading captions...
+Loaded captions for 31783 images
+Cleaning captions...
+Building vocabulary...
+Vocab size: 20157, Max caption length: 35
+Train images: 28604, Test images: 3179
+Train batches: 2235, Val batches: 249
+Total params: 31,678,142, Trainable: 31,678,142
+C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\optim\lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+======================================================================
+STARTING TRAINING
+======================================================================
+Epoch 1/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [23:25<00:00,  1.59it/s, loss=5.2867] 
+Epoch 1/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:48<00:00,  5.18it/s, loss=4.3798]
+
+Epoch 1/50
+Train Loss: 5.5326 | Val Loss: 4.9374
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.9374
+Epoch 2/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [22:11<00:00,  1.68it/s, loss=5.1082] 
+Epoch 2/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:45<00:00,  5.50it/s, loss=4.2194]
+
+Epoch 2/50
+Train Loss: 4.9800 | Val Loss: 4.7208
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.7208
+Epoch 3/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [21:50<00:00,  1.70it/s, loss=4.8460] 
+Epoch 3/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:44<00:00,  5.63it/s, loss=4.1256]
+
+Epoch 3/50
+Train Loss: 4.8070 | Val Loss: 4.6304
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.6304
+Epoch 4/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:34<00:00,  1.52it/s, loss=4.6916]
+Epoch 4/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:56<00:00,  4.42it/s, loss=4.0448]
+
+Epoch 4/50
+Train Loss: 4.7009 | Val Loss: 4.5507
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.5507
+Epoch 5/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:30<00:00,  1.52it/s, loss=4.5766] 
+Epoch 5/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:55<00:00,  4.53it/s, loss=4.0301]
+
+Epoch 5/50
+Train Loss: 4.6276 | Val Loss: 4.5210
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.5210
+Epoch 6/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:08<00:00,  1.54it/s, loss=4.4998] 
+Epoch 6/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:57<00:00,  4.33it/s, loss=4.0154]
+
+Epoch 6/50
+Train Loss: 4.5687 | Val Loss: 4.4861
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4861
+Epoch 7/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:48<00:00,  1.50it/s, loss=4.5427] 
+Epoch 7/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:52<00:00,  4.79it/s, loss=3.9835]
+
+Epoch 7/50
+Train Loss: 4.5212 | Val Loss: 4.4636
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4636
+Epoch 8/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:08<00:00,  1.54it/s, loss=4.2279] 
+Epoch 8/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:52<00:00,  4.70it/s, loss=3.9699]
+
+Epoch 8/50
+Train Loss: 4.4814 | Val Loss: 4.4412
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4412
+Epoch 9/50 [Train]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:21<00:00,  1.53it/s, loss=4.3364] 
+Epoch 9/50 [Val]: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:54<00:00,  4.57it/s, loss=3.9640]
+
+Epoch 9/50
+Train Loss: 4.4472 | Val Loss: 4.4375
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4375
+Epoch 10/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:18<00:00,  1.53it/s, loss=4.3507] 
+Epoch 10/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:55<00:00,  4.51it/s, loss=3.9406]
+
+Epoch 10/50
+Train Loss: 4.4159 | Val Loss: 4.4195
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4195
+Epoch 11/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:01<00:00,  1.49it/s, loss=4.4166] 
+Epoch 11/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:58<00:00,  4.22it/s, loss=3.9460]
+
+Epoch 11/50
+Train Loss: 4.3876 | Val Loss: 4.4150
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4150
+Epoch 12/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:41<00:00,  1.51it/s, loss=4.5404] 
+Epoch 12/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:57<00:00,  4.33it/s, loss=3.9536]
+
+Epoch 12/50
+Train Loss: 4.3610 | Val Loss: 4.4109
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4109
+Epoch 13/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:17<00:00,  1.47it/s, loss=4.1145] 
+Epoch 13/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:54<00:00,  4.58it/s, loss=3.9501]
+
+Epoch 13/50
+Train Loss: 4.3370 | Val Loss: 4.4091
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4091
+Epoch 14/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [26:46<00:00,  1.39it/s, loss=4.1917] 
+Epoch 14/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:55<00:00,  4.50it/s, loss=3.9595]
+
+Epoch 14/50
+Train Loss: 4.3154 | Val Loss: 4.4225
+LR: 0.000300
+No improvement for 1 epoch(s)
+Epoch 15/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [28:04<00:00,  1.33it/s, loss=4.3779] 
+Epoch 15/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:50<00:00,  4.95it/s, loss=3.9568]
+
+Epoch 15/50
+Train Loss: 4.2947 | Val Loss: 4.4054
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4054
+Epoch 16/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [28:11<00:00,  1.32it/s, loss=4.3675] 
+Epoch 16/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:54<00:00,  4.53it/s, loss=3.9421]
+
+Epoch 16/50
+Train Loss: 4.2740 | Val Loss: 4.4072
+LR: 0.000300
+No improvement for 1 epoch(s)
+Epoch 17/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:25<00:00,  1.52it/s, loss=4.2415] 
+Epoch 17/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:53<00:00,  4.64it/s, loss=3.9456]
+
+Epoch 17/50
+Train Loss: 4.2551 | Val Loss: 4.4047
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4047
+Epoch 18/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:30<00:00,  1.46it/s, loss=4.2371] 
+Epoch 18/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:52<00:00,  4.71it/s, loss=3.9711]
+
+Epoch 18/50
+Train Loss: 4.2357 | Val Loss: 4.4032
+LR: 0.000300
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4032
+Epoch 19/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:15<00:00,  1.47it/s, loss=4.3702] 
+Epoch 19/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:54<00:00,  4.60it/s, loss=3.9694]
+
+Epoch 19/50
+Train Loss: 4.2193 | Val Loss: 4.4074
+LR: 0.000300
+No improvement for 1 epoch(s)
+Epoch 20/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [24:35<00:00,  1.52it/s, loss=4.2838] 
+Epoch 20/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:56<00:00,  4.38it/s, loss=3.9189]
+
+Epoch 20/50
+Train Loss: 4.2028 | Val Loss: 4.4214
+LR: 0.000300
+No improvement for 2 epoch(s)
+Epoch 21/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:41<00:00,  1.45it/s, loss=4.1271] 
+Epoch 21/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [01:05<00:00,  3.81it/s, loss=3.9081]
+
+Epoch 21/50
+Train Loss: 4.1424 | Val Loss: 4.4012
+LR: 0.000210
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.4012
+Epoch 22/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [25:30<00:00,  1.46it/s, loss=4.1051] 
+Epoch 22/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:55<00:00,  4.50it/s, loss=3.9019]
+
+Epoch 22/50
+Train Loss: 4.1202 | Val Loss: 4.3987
+LR: 0.000210
+Model saved to .\flickr30k_images\best_model_resnet50_attention_h512_30k.pth
+✓ New best model! Val Loss: 4.3987
+Epoch 23/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [23:49<00:00,  1.56it/s, loss=4.2357] 
+Epoch 23/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:43<00:00,  5.73it/s, loss=3.8962]
+
+Epoch 23/50
+Train Loss: 4.1033 | Val Loss: 4.4088
+LR: 0.000210
+No improvement for 1 epoch(s)
+Epoch 24/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [21:53<00:00,  1.70it/s, loss=3.9567] 
+Epoch 24/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:44<00:00,  5.62it/s, loss=3.9335]
+
+Epoch 24/50
+Train Loss: 4.0879 | Val Loss: 4.4160
+LR: 0.000210
+No improvement for 2 epoch(s)
+Epoch 25/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [21:47<00:00,  1.71it/s, loss=4.2055] 
+Epoch 25/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:44<00:00,  5.64it/s, loss=3.9736] 
+
+Epoch 25/50
+Train Loss: 4.0369 | Val Loss: 4.4189
+LR: 0.000147
+No improvement for 3 epoch(s)
+Epoch 26/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [21:50<00:00,  1.70it/s, loss=3.9956] 
+Epoch 26/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:44<00:00,  5.65it/s, loss=3.8980]
+
+Epoch 26/50
+Train Loss: 4.0195 | Val Loss: 4.4252
+LR: 0.000147
+No improvement for 4 epoch(s)
+Epoch 27/50 [Train]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2235/2235 [21:47<00:00,  1.71it/s, loss=3.7563] 
+Epoch 27/50 [Val]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 249/249 [00:44<00:00,  5.59it/s, loss=3.9200]
+
+Epoch 27/50
+Train Loss: 3.9792 | Val Loss: 4.4278
+LR: 0.000103
+No improvement for 5 epoch(s)
+Early stopping after 27 epochs
+
+TRAINING COMPLETED
+
+C:\Users\LAPTOP\Documents\Code\Python\ResNet50_LSTM_Attention_Flickr30k.py:976: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(Config.MODEL_SAVE_PATH, map_location=Config.DEVICE)
+Loaded best model from epoch 22 with val loss 4.3987
+Generating captions: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3179/3179 [03:25<00:00, 15.47it/s]
+
+BLEU scores:
+BLEU-1: 0.5034
+BLEU-2: 0.3268
+BLEU-3: 0.2149
+BLEU-4: 0.1319
+Research Evaluation: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3179/3179 [03:36<00:00, 14.66it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.5034
+BLEU-2 (nltk): 0.3268
+BLEU-3 (nltk): 0.2149
+BLEU-4 (nltk): 0.1319
+BLEU-1 (linear BP): 0.4965
+BLEU-2 (linear BP): 0.3224
+BLEU-3 (linear BP): 0.2119
+BLEU-4 (linear BP): 0.1301
+METEOR: 0.2662
+Avg Pred Len: 8.3193
+Avg Ref Len: 8.4973
+Len Ratio: 0.9790
+==================================================
+Research evaluation results: {'BLEU-1 (nltk)': 0.5034068006205732, 'BLEU-2 (nltk)': 0.3268445745877956, 'BLEU-3 (nltk)': 0.21488522833890203, 'BLEU-4 (nltk)': 0.1319306081720166, 'BLEU-1 (linear BP)': 0.49648874089215644, 'BLEU-2 (linear BP)': 0.32235291836439944, 'BLEU-3 (linear BP)': 0.21193217160114958, 'BLEU-4 (linear BP)': 0.13014063193676784, 'METEOR': 0.2661527227187724, 'Avg Pred Len': 8.319282793331237, 'Avg Ref Len': 8.497326203208557, 'Len Ratio': 0.9790471254581128}
+
+============================================================
+Image ID: 4738236580
+ACTUAL CAPTIONS:
+1. startseq two priests wearing white robes and black hats clasp their hands in front of themselves and appear to be leading church service endseq
+2. startseq two men in white robes with black hats with one in prayer stance endseq
+3. startseq two monks in long white robes in religious ceremony endseq
+4. startseq two asian men in white robes are praying endseq
+5. startseq two taoist monks wearing white praying endseq
+
+PREDICTED (greedy):
+two women in white coats are standing in front of building
+
+PREDICTED (beam size=3):
+woman in white dress is standing on the street
+============================================================
+
+
+============================================================
+Image ID: 4003168567
+ACTUAL CAPTIONS:
+1. startseq group of people with colorful clothing walking down the street playing homemade instruments endseq
+2. startseq man wearing yellow shirt is holding bottle while walking with crowd of people endseq
+3. startseq group of people playing an assortment of instruments while walking down the street endseq
+4. startseq people are marching in parade while beating drums and playing instruments endseq
+5. startseq procession of adults and children play drums and percussion instruments endseq
+
+PREDICTED (greedy):
+group of people are playing instruments on the street
+
+PREDICTED (beam size=3):
+group of people playing instruments
+============================================================
+
+
+============================================================
+Image ID: 2548795330
+ACTUAL CAPTIONS:
+1. startseq group of construction workers in hard hats are working on roof endseq
+2. startseq group of construction workers standing on top of building endseq
+3. startseq the scene of construction site with workers looking on endseq
+4. startseq seven construction workers working on building endseq
+5. startseq men working on building endseq
+
+PREDICTED (greedy):
+two men are working on the roof of building
+
+PREDICTED (beam size=3):
+construction workers are working on scaffolding
+============================================================
+
+
+Done.
+
+(fer) C:\Users\LAPTOP\Documents\Code\Python>python -u "ImageCaption.py" --mode research_eval
+2025-12-22 12:52:51.867092: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-22 12:52:58.269935: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\LAPTOP\Documents\Code\Python\ImageCaption.py:1318: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(Config.MODEL_SAVE_PATH, map_location=Config.DEVICE)
+
+Loading captions...
+Loaded captions for 8091 images
+Cleaning captions...
+Evaluating on 8091 images...
+Research Evaluation: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8091/8091 [07:39<00:00, 17.60it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.5995
+BLEU-2 (nltk): 0.4425
+BLEU-3 (nltk): 0.3210
+BLEU-4 (nltk): 0.2227
+BLEU-1 (linear BP): 0.5967
+BLEU-2 (linear BP): 0.4404
+BLEU-3 (linear BP): 0.3195
+BLEU-4 (linear BP): 0.2218
+METEOR: 0.3608
+Avg Pred Len: 7.7266
+Avg Ref Len: 7.9424
+Len Ratio: 0.9728
+==================================================
+
+Done.
+
+(fer) C:\Users\LAPTOP\Documents\Code\Python>python -u "ResNet50_LSTM_Attention_Flickr30k.py" --mode research_eval
+2025-12-22 18:11:21.517690: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-22 18:11:36.886251: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+C:\Users\LAPTOP\Documents\Code\Python\ResNet50_LSTM_Attention_Flickr30k.py:1146: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(Config.MODEL_SAVE_PATH, map_location=Config.DEVICE)
+
+Loading captions...
+Loaded captions for 31783 images
+Cleaning captions...
+Evaluating on 31783 images...
+Research Evaluation: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 31783/31783 [1:04:31<00:00,  8.21it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.5746
+BLEU-2 (nltk): 0.4071
+BLEU-3 (nltk): 0.2870
+BLEU-4 (nltk): 0.1943
+BLEU-1 (linear BP): 0.5690
+BLEU-2 (linear BP): 0.4031
+BLEU-3 (linear BP): 0.2842
+BLEU-4 (linear BP): 0.1924
+METEOR: 0.3213
+Avg Pred Len: 8.1526
+Avg Ref Len: 8.5216
+Len Ratio: 0.9567
+==================================================
