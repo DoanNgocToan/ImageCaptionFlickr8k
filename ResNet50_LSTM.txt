@@ -1,0 +1,604 @@
+2025-12-31 19:08:21.614428: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-31 19:08:28.496300: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+======================================================================
+OPTIMIZED CONFIGURATION FOR FLICKR8K
+======================================================================
+Device: cuda
+Batch Size: 32
+Epochs: 50
+Learning Rate: 1e-04
+Weight Decay: 1e-05
+Label Smoothing: 0.1
+----------------------------------------------------------------------
+Embed Size: 256
+Hidden Size: 256 (Reduced from 512)
+Attention Dim: 256
+----------------------------------------------------------------------
+Embed Dropout: 0.4
+LSTM Dropout: 0.3
+Decoder Dropout: 0.5
+----------------------------------------------------------------------
+Feature shape: (49, 2048)
+Gradient Clip: 5.0
+======================================================================
+Feature shape: (49, 2048)
+Gradient Clip: 5.0
+======================================================================
+Loaded features for 8091 images
+
+Loading captions...
+Loaded captions for 8091 images
+Cleaning captions...
+Building vocabulary...
+Vocab size: 8369, Max caption length: 34
+Train images: 6472, Test images: 1619
+Train batches: 1012, Val batches: 253
+Total params: 8,031,665, Trainable: 8,031,665
+C:\Users\LAPTOP\anaconda3\envs\fer\Lib\site-packages\torch\optim\lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+======================================================================
+STARTING TRAINING
+======================================================================
+
+
+Epoch 1/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.30it/s, loss=5.7376]
+Epoch 1/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 42.53it/s, loss=5.4573]
+
+Epoch 1/50
+Train Loss: 6.2300 | Val Loss: 5.6344
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 5.6344
+
+
+Epoch 2/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.36it/s, loss=5.8717]
+Epoch 2/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 42.80it/s, loss=5.1259]
+
+Epoch 2/50
+Train Loss: 5.5844 | Val Loss: 5.3100
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 5.3100
+
+
+Epoch 3/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.33it/s, loss=5.1039]
+Epoch 3/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.34it/s, loss=4.9068]
+
+Epoch 3/50
+Train Loss: 5.3358 | Val Loss: 5.0970
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 5.0970
+
+
+Epoch 4/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.32it/s, loss=5.0972]
+Epoch 4/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.31it/s, loss=4.7496]
+
+Epoch 4/50
+Train Loss: 5.1615 | Val Loss: 4.9597
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.9597
+
+
+Epoch 5/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.36it/s, loss=5.0766]
+Epoch 5/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 44.17it/s, loss=4.6320]
+
+Epoch 5/50
+Train Loss: 5.0341 | Val Loss: 4.8532
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.8532
+
+
+Epoch 6/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.35it/s, loss=4.9779]
+Epoch 6/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 44.13it/s, loss=4.5294]
+
+Epoch 6/50
+Train Loss: 4.9349 | Val Loss: 4.7773
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.7773
+
+
+Epoch 7/50 [Train]: 100%|##########| 1012/1012 [01:47<00:00,  9.42it/s, loss=4.0156]
+Epoch 7/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.03it/s, loss=4.4339]
+
+Epoch 7/50
+Train Loss: 4.8504 | Val Loss: 4.7099
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.7099
+
+
+Epoch 8/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.36it/s, loss=4.8928]
+Epoch 8/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 41.76it/s, loss=4.3838]
+
+Epoch 8/50
+Train Loss: 4.7802 | Val Loss: 4.6593
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.6593
+
+
+Epoch 9/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.34it/s, loss=4.4465]
+Epoch 9/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 42.57it/s, loss=4.3148]
+
+Epoch 9/50
+Train Loss: 4.7183 | Val Loss: 4.6123
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.6123
+
+
+Epoch 10/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.30it/s, loss=4.0846]
+Epoch 10/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.42it/s, loss=4.2644]
+
+Epoch 10/50
+Train Loss: 4.6649 | Val Loss: 4.5749
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.5749
+
+
+Epoch 11/50 [Train]: 100%|##########| 1012/1012 [01:47<00:00,  9.41it/s, loss=4.6112]
+Epoch 11/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.08it/s, loss=4.2206]
+
+Epoch 11/50
+Train Loss: 4.6185 | Val Loss: 4.5454
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.5454
+
+
+Epoch 12/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.34it/s, loss=4.1266]
+Epoch 12/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 42.79it/s, loss=4.1833]
+
+Epoch 12/50
+Train Loss: 4.5760 | Val Loss: 4.5143
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.5143
+
+
+Epoch 13/50 [Train]: 100%|##########| 1012/1012 [01:47<00:00,  9.42it/s, loss=4.3593]
+Epoch 13/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.64it/s, loss=4.1610]
+
+Epoch 13/50
+Train Loss: 4.5355 | Val Loss: 4.4933
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4933
+
+
+Epoch 14/50 [Train]: 100%|##########| 1012/1012 [01:47<00:00,  9.39it/s, loss=4.8629]
+Epoch 14/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.95it/s, loss=4.1290]
+
+Epoch 14/50
+Train Loss: 4.5002 | Val Loss: 4.4719
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4719
+
+
+Epoch 15/50 [Train]: 100%|##########| 1012/1012 [01:47<00:00,  9.45it/s, loss=4.4959]
+Epoch 15/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.14it/s, loss=4.1043]
+
+Epoch 15/50
+Train Loss: 4.4663 | Val Loss: 4.4516
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4516
+
+
+Epoch 16/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.32it/s, loss=4.9276]
+Epoch 16/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 19.68it/s, loss=4.0669]
+
+Epoch 16/50
+Train Loss: 4.4353 | Val Loss: 4.4329
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4329
+
+
+Epoch 17/50 [Train]: 100%|##########| 1012/1012 [02:02<00:00,  8.25it/s, loss=4.3170]
+Epoch 17/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 42.47it/s, loss=4.0726]
+
+Epoch 17/50
+Train Loss: 4.4070 | Val Loss: 4.4243
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4243
+
+
+Epoch 18/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.31it/s, loss=4.3798]
+Epoch 18/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.48it/s, loss=4.0562]
+
+Epoch 18/50
+Train Loss: 4.3781 | Val Loss: 4.4149
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.4149
+
+
+Epoch 19/50 [Train]: 100%|##########| 1012/1012 [01:48<00:00,  9.33it/s, loss=4.8324]
+Epoch 19/50 [Val]: 100%|##########| 253/253 [00:05<00:00, 43.01it/s, loss=4.0380]
+
+Epoch 19/50
+Train Loss: 4.3525 | Val Loss: 4.3952
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3952
+
+
+Epoch 20/50 [Train]: 100%|##########| 1012/1012 [02:27<00:00,  6.84it/s, loss=4.0262]
+Epoch 20/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 40.02it/s, loss=4.0074]
+
+Epoch 20/50
+Train Loss: 4.3267 | Val Loss: 4.3859
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3859
+
+
+Epoch 21/50 [Train]: 100%|##########| 1012/1012 [02:39<00:00,  6.35it/s, loss=4.5433]
+Epoch 21/50 [Val]: 100%|##########| 253/253 [00:13<00:00, 18.38it/s, loss=3.9763]
+
+Epoch 21/50
+Train Loss: 4.3035 | Val Loss: 4.3759
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3759
+
+
+Epoch 22/50 [Train]: 100%|##########| 1012/1012 [02:07<00:00,  7.96it/s, loss=4.2742]
+Epoch 22/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 41.06it/s, loss=4.0040]
+
+Epoch 22/50
+Train Loss: 4.2818 | Val Loss: 4.3740
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3740
+
+
+Epoch 23/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.42it/s, loss=4.4008]
+Epoch 23/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 19.60it/s, loss=3.9759]
+
+Epoch 23/50
+Train Loss: 4.2606 | Val Loss: 4.3606
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3606
+
+
+Epoch 24/50 [Train]: 100%|##########| 1012/1012 [02:30<00:00,  6.71it/s, loss=4.4190]
+Epoch 24/50 [Val]: 100%|##########| 253/253 [00:11<00:00, 21.23it/s, loss=3.9761]
+
+Epoch 24/50
+Train Loss: 4.2390 | Val Loss: 4.3543
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3543
+
+
+Epoch 25/50 [Train]: 100%|##########| 1012/1012 [02:29<00:00,  6.75it/s, loss=4.6362]
+Epoch 25/50 [Val]: 100%|##########| 253/253 [00:11<00:00, 21.11it/s, loss=3.9740]
+
+Epoch 25/50
+Train Loss: 4.2221 | Val Loss: 4.3538
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3538
+
+
+Epoch 26/50 [Train]: 100%|##########| 1012/1012 [02:30<00:00,  6.73it/s, loss=4.5261]
+Epoch 26/50 [Val]: 100%|##########| 253/253 [00:11<00:00, 22.91it/s, loss=3.9659]
+
+Epoch 26/50
+Train Loss: 4.2040 | Val Loss: 4.3456
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3456
+
+
+Epoch 27/50 [Train]: 100%|##########| 1012/1012 [02:28<00:00,  6.81it/s, loss=4.7892]
+Epoch 27/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 20.89it/s, loss=3.9315]
+
+Epoch 27/50
+Train Loss: 4.1866 | Val Loss: 4.3367
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3367
+
+
+Epoch 28/50 [Train]: 100%|##########| 1012/1012 [02:31<00:00,  6.68it/s, loss=4.7079]
+Epoch 28/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 20.45it/s, loss=3.9163]
+
+Epoch 28/50
+Train Loss: 4.1684 | Val Loss: 4.3342
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3342
+
+
+Epoch 29/50 [Train]: 100%|##########| 1012/1012 [02:29<00:00,  6.75it/s, loss=4.5069]
+Epoch 29/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 20.99it/s, loss=3.9178]
+
+Epoch 29/50
+Train Loss: 4.1527 | Val Loss: 4.3315
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3315
+
+
+Epoch 30/50 [Train]: 100%|##########| 1012/1012 [02:29<00:00,  6.78it/s, loss=4.3855]
+Epoch 30/50 [Val]: 100%|##########| 253/253 [00:11<00:00, 21.76it/s, loss=3.9177]
+
+Epoch 30/50
+Train Loss: 4.1365 | Val Loss: 4.3278
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3278
+
+
+Epoch 31/50 [Train]: 100%|##########| 1012/1012 [02:29<00:00,  6.77it/s, loss=4.6977]
+Epoch 31/50 [Val]: 100%|##########| 253/253 [00:12<00:00, 20.29it/s, loss=3.9576]
+
+Epoch 31/50
+Train Loss: 4.1214 | Val Loss: 4.3309
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 32/50 [Train]: 100%|##########| 1012/1012 [02:30<00:00,  6.74it/s, loss=3.5486]
+Epoch 32/50 [Val]: 100%|##########| 253/253 [00:11<00:00, 21.35it/s, loss=3.9340]
+
+Epoch 32/50
+Train Loss: 4.1046 | Val Loss: 4.3260
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3260
+
+
+Epoch 33/50 [Train]: 100%|##########| 1012/1012 [02:18<00:00,  7.33it/s, loss=3.7668]
+Epoch 33/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 37.22it/s, loss=3.9184]
+
+Epoch 33/50
+Train Loss: 4.0919 | Val Loss: 4.3245
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3245
+
+
+Epoch 34/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.41it/s, loss=4.2460]
+Epoch 34/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 38.03it/s, loss=3.8874]
+
+Epoch 34/50
+Train Loss: 4.0765 | Val Loss: 4.3242
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3242
+
+
+Epoch 35/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.39it/s, loss=3.9637]
+Epoch 35/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 36.51it/s, loss=3.9134]
+
+Epoch 35/50
+Train Loss: 4.0624 | Val Loss: 4.3225
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3225
+
+
+Epoch 36/50 [Train]: 100%|##########| 1012/1012 [01:59<00:00,  8.45it/s, loss=3.9021]
+Epoch 36/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 35.56it/s, loss=3.8901]
+
+Epoch 36/50
+Train Loss: 4.0528 | Val Loss: 4.3205
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3205
+
+
+Epoch 37/50 [Train]: 100%|##########| 1012/1012 [01:59<00:00,  8.46it/s, loss=4.2969]
+Epoch 37/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 36.56it/s, loss=3.9093]
+
+Epoch 37/50
+Train Loss: 4.0350 | Val Loss: 4.3224
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 38/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.37it/s, loss=3.8832]
+Epoch 38/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 39.07it/s, loss=3.9245]
+
+Epoch 38/50
+Train Loss: 4.0263 | Val Loss: 4.3168
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3168
+
+
+Epoch 39/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.40it/s, loss=4.0144]
+Epoch 39/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 37.05it/s, loss=3.8827]
+
+Epoch 39/50
+Train Loss: 4.0133 | Val Loss: 4.3148
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3148
+
+
+Epoch 40/50 [Train]: 100%|##########| 1012/1012 [02:01<00:00,  8.35it/s, loss=4.0844]
+Epoch 40/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 37.48it/s, loss=3.9084]
+
+Epoch 40/50
+Train Loss: 4.0044 | Val Loss: 4.3147
+LR: 0.000100
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3147
+
+
+Epoch 41/50 [Train]: 100%|##########| 1012/1012 [01:58<00:00,  8.54it/s, loss=4.3060]
+Epoch 41/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 36.22it/s, loss=3.9300]
+
+Epoch 41/50
+Train Loss: 3.9940 | Val Loss: 4.3246
+LR: 0.000100
+No improvement for 1 epoch(s)
+
+
+Epoch 42/50 [Train]: 100%|##########| 1012/1012 [01:59<00:00,  8.50it/s, loss=3.9165]
+Epoch 42/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 36.67it/s, loss=3.9239]
+
+Epoch 42/50
+Train Loss: 3.9667 | Val Loss: 4.3149
+LR: 0.000070
+No improvement for 2 epoch(s)
+
+
+Epoch 43/50 [Train]: 100%|##########| 1012/1012 [01:58<00:00,  8.55it/s, loss=3.8044]
+Epoch 43/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 33.50it/s, loss=3.9167]
+
+Epoch 43/50
+Train Loss: 3.9570 | Val Loss: 4.3109
+LR: 0.000070
+Model saved to .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+New best model! Val Loss: 4.3109
+
+
+Epoch 44/50 [Train]: 100%|##########| 1012/1012 [01:58<00:00,  8.51it/s, loss=3.7316]
+Epoch 44/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 35.99it/s, loss=3.8829]
+
+Epoch 44/50
+Train Loss: 3.9494 | Val Loss: 4.3219
+LR: 0.000070
+No improvement for 1 epoch(s)
+
+
+Epoch 45/50 [Train]: 100%|##########| 1012/1012 [02:01<00:00,  8.34it/s, loss=4.3207]
+Epoch 45/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 35.67it/s, loss=3.9138]
+
+Epoch 45/50
+Train Loss: 3.9436 | Val Loss: 4.3183
+LR: 0.000070
+No improvement for 2 epoch(s)
+
+
+Epoch 46/50 [Train]: 100%|##########| 1012/1012 [02:00<00:00,  8.42it/s, loss=3.9559]
+Epoch 46/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 36.00it/s, loss=3.9093]
+
+Epoch 46/50
+Train Loss: 3.9228 | Val Loss: 4.3155
+LR: 0.000049
+No improvement for 3 epoch(s)
+
+
+Epoch 47/50 [Train]: 100%|##########| 1012/1012 [01:59<00:00,  8.48it/s, loss=3.5982]
+Epoch 47/50 [Val]: 100%|##########| 253/253 [00:06<00:00, 37.26it/s, loss=3.8905]
+
+Epoch 47/50
+Train Loss: 3.9151 | Val Loss: 4.3195
+LR: 0.000049
+No improvement for 4 epoch(s)
+
+
+Epoch 48/50 [Train]: 100%|##########| 1012/1012 [02:01<00:00,  8.32it/s, loss=4.2115]
+Epoch 48/50 [Val]: 100%|##########| 253/253 [00:07<00:00, 32.33it/s, loss=3.8846]
+
+Epoch 48/50
+Train Loss: 3.9019 | Val Loss: 4.3224
+LR: 0.000034
+No improvement for 5 epoch(s)
+Early stopping after 48 epochs
+
+TRAINING COMPLETED
+
+
+Training completed!
+Best model saved at: .\content\clean_data_flickr8k\best_model_resnet50_attention_h256.pth
+C:\Users\LAPTOP\Documents\Code\Python\ResNet50_LSTM.py:941: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(Config.MODEL_SAVE_PATH, map_location=Config.DEVICE)
+Loaded best model from epoch 43 with val loss 4.3109
+
+
+Generating captions: 100%|##########| 1619/1619 [01:01<00:00, 26.24it/s]
+
+BLEU scores:
+BLEU-1: 0.4906
+BLEU-2: 0.3281
+BLEU-3: 0.2192
+BLEU-4: 0.1376
+
+
+Research Evaluation: 100%|##########| 1619/1619 [00:50<00:00, 31.80it/s]
+
+RESEARCH METRICS
+==================================================
+BLEU-1 (nltk): 0.4906
+BLEU-2 (nltk): 0.3281
+BLEU-3 (nltk): 0.2192
+BLEU-4 (nltk): 0.1376
+BLEU-1 (linear BP): 0.4902
+BLEU-2 (linear BP): 0.3277
+BLEU-3 (linear BP): 0.2189
+BLEU-4 (linear BP): 0.1375
+METEOR: 0.2846
+Avg Pred Len: 7.7140
+Avg Ref Len: 7.9166
+Len Ratio: 0.9744
+==================================================
+
+============================================================
+Image ID: 2607130765_97833d6ce1
+ACTUAL CAPTIONS:
+1. startseq bunch of little kids are playing soccer endseq
+2. startseq children play in soccer game endseq
+3. startseq little kids playing soccer endseq
+4. startseq little kids run toward the goal while playing soccer endseq
+5. startseq the children are running through the grass playing soccer endseq
+
+PREDICTED (greedy):
+two boys playing soccer
+
+PREDICTED (beam size=3):
+two boys playing soccer
+============================================================
+
+
+============================================================
+Image ID: 2420546021_4a59790da6
+ACTUAL CAPTIONS:
+1. startseq child is in colorful native clothing endseq
+2. startseq girl in colorful clothes and hat posing for the camera endseq
+3. startseq an asian girl is dressed in colorful costume and yellow headdress endseq
+4. startseq woman wearing colorful costume looks at the camera endseq
+5. startseq young woman with colorful clothes on endseq
+
+PREDICTED (greedy):
+woman in red dress is holding her hair
+
+PREDICTED (beam size=3):
+the woman in red dress is wearing pink dress
+============================================================
+
+
+============================================================
+Image ID: 3640109324_3ce89e4d1a
+ACTUAL CAPTIONS:
+1. startseq group of men carry silver coffin endseq
+2. startseq men carry small structure on their shoulders while others play instruments behind endseq
+3. startseq men in blue carrying something on their shoulders followed by band endseq
+4. startseq pall bearers at catholic funeral endseq
+5. startseq the men are wearing purple and carrying silver casket endseq
+
+PREDICTED (greedy):
+group of men are posing for picture
+
+PREDICTED (beam size=3):
+group of men are posing for picture
+============================================================
+
+
+Done.
